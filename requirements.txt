@@ -1,0 +1,6 @@
+Kivy==1.11.1
+Kivy==2.0.0
+kivymd==0.104.2
+passlib==1.7.4
+setuptools==42.0.2.post20191203
+setuptools==41.4.0
