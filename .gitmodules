@@ -1,3 +1,6 @@
 [submodule "CQRT-algo"]
 	path = CQRT-algo
 	url = https://github.com/CQRT-app/CQRT-algo
+[submodule "GUI/Framework-Kivy"]
+	path = GUI/Framework-Kivy
+	url = https://github.com/reza0310/Framework-Kivy

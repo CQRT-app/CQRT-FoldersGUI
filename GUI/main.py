@@ -2,6 +2,8 @@ __author__ = "reza0310"
 
 import sys
 sys.path.append("../CQRT-algo/CLIENT")
+sys.path.append("Framework-Kivy/framework_core")
+
 
 import structures
 import framework

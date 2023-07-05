@@ -92,6 +92,9 @@ def initialize():
     
     global actuel
     actuel = "../CQRT-algo/CLIENT/home"
+    
+    global racine
+    racine = "../CQRT-algo/CLIENT/home"
 
     # Dépendances:
     from framework import HUD
