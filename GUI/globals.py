@@ -1,4 +1,4 @@
-import socket
+import json
 
 __author__ = "reza0310"
 
@@ -10,10 +10,15 @@ def initialize():
     HEADER_LENGTH = 10
 
     global FPS
-    FPS = 60
+    FPS = 10
 
     global separateur
     separateur = "/"
+
+    global aliases
+    f = open("aliases.json", "r")
+    aliases = json.load(f)
+    f.close()
 
     global images
     images = {"arriere_plan": {
@@ -70,12 +75,42 @@ def initialize():
                                 "author_name":"riajulislam (modifié par Yann Duclos)",
                                 "author_url":"https://www.flaticon.com/fr/auteurs/riajulislam"
                                },
+              "co_deco": {
+                                "path":".."+separateur+"DATA"+separateur+"point-dinterrogation-dans-un-cercle-sombre.png",
+                                "url":"https://www.flaticon.com/fr/icone-gratuite/point-dinterrogation-dans-un-cercle-sombre_71768?term=dans+un+cercle&page=1&position=22&origin=search&related_id=71768",
+                                "author_name":"Freepik (modifié par Yann Duclos)",
+                                "author_url":"https://www.flaticon.com/fr/auteurs/freepik"
+                               },
               "retour": {
                                 "path":".."+separateur+"DATA"+separateur+"fleche-gauche.png",
                                 "url":"https://www.flaticon.com/fr/icone-gratuite/fleche-gauche_271218?term=fleche+arri%C3%A8re&page=1&position=18&origin=search&related_id=271218",
                                 "author_name":"Roundicons",
                                 "author_url":"https://www.flaticon.com/fr/auteurs/roundicons"
                                },
+              "textinput": {
+                                "path":"Framework-Kivy"+separateur+"framework_core"+separateur+"data"+separateur+"input.png",
+                                "url":"https://github.com/reza0310/Framework-Kivy/blob/main/framework_core/data/input.png",
+                                "author_name":"Unknown",
+                                "author_url":"Unknown"
+                               },
+              "info": {
+                                "path":".."+separateur+"DATA"+separateur+"information.png",
+                                "url":"https://www.flaticon.com/fr/icone-gratuite/information_545674?term=information&page=1&position=3&origin=search&related_id=545674",
+                                "author_name":"Freepik (modifié par Yann Duclos)",
+                                "author_url":"https://www.flaticon.com/fr/auteurs/freepik"
+                               },
+              "clefs": {
+                                "path":".."+separateur+"DATA"+separateur+"cle.png",
+                                "url":"https://www.flaticon.com/fr/icone-gratuite/cle_2556639?term=clef&page=1&position=1&origin=search&related_id=2556639",
+                                "author_name":"Indielogy",
+                                "author_url":"https://www.flaticon.com/fr/auteurs/indielogy"
+                               },
+              "compte": {
+                                "path":".."+separateur+"DATA"+separateur+"compte.png",
+                                "url":"https://www.flaticon.com/fr/icone-gratuite/compte_2207595?term=compte&page=1&position=1&origin=search&related_id=2207595",
+                                "author_name":"mattbadal",
+                                "author_url":"https://www.flaticon.com/fr/auteurs/mattbadal"
+                               }
               }
 
     global mode
@@ -99,6 +134,7 @@ def initialize():
     # Dépendances:
     from framework import HUD
     from CQRT import Coeur
+    from structures import Client
 
     # Variables dépendates:
 
@@ -109,16 +145,10 @@ def initialize():
     jeu = Coeur()
 
     global account_client
-    account_client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-
-    global account_ip
-    account_ip = ""
-
-    global account_port
-    account_port = 0
+    account_client = Client()
 
     global message_client
-    message_client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    message_client = Client()
 
-    global message_ip
-    message_ip = ""
+    global sync_client
+    sync_client = Client()
